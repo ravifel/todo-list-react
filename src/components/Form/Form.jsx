@@ -15,6 +15,7 @@ export default function Form({ addTodo }) {
     };
     setId(id + 1); //Aqui o "id" vai ser incrementado
     addTodo(todoObject); //Aqui o objeto vai ser enviado
+    document.getElementById("outlined-basic").value = null; //Limpar o input após a criação de nova Task
   };
 
   return (
