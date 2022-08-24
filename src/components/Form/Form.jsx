@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Form.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 
-export default function Form() {
+export default function Form({ addTodo }) {
+  const [nameTask, setNameTask] = useState(null);
+  const [id, setId] = useState(0);
+
+  const todoCreate = (nameTask) => {
+    const todoObject = {
+      nameTask: nameTask,
+      id: id,
+    };
+    setId(id + 1); //Aqui o "id" vai ser incrementado
+    addTodo(todoObject); //Aqui o objeto vai ser enviado
+  };
+
   return (
     <div className="caixaTexto">
       <Paper style={{ padding: "1em" }}>
@@ -12,11 +24,14 @@ export default function Form() {
           <TextField
             id="outlined-basic"
             label="Informe a Task"
+            onChange={(valor) => setNameTask(valor.target.value)}
             variant="outlined"
             fullWidth
             style={{ paddingRight: "1em" }}
           />
-          <Button variant="contained">ADD</Button>
+          <Button variant="contained" onClick={() => todoCreate(nameTask)}>
+            ADD
+          </Button>
         </div>
       </Paper>
     </div>
