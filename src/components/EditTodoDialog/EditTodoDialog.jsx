@@ -22,7 +22,7 @@ export default function EditTodoDialog({
 
   const textHandler = () => {
     //vai pegar um novo valor que foi digitado para edição
-    editTodo(todo.id, todo.editedText);
+    editTodo(todo.id, editedText);
     dialogHandler();
   };
 
@@ -35,7 +35,7 @@ export default function EditTodoDialog({
       aria-describedby="alert-dialog-slide-description"
       fullWidth
     >
-      <DialogTitle>{"Edição de Tarefa"}</DialogTitle>
+      <DialogTitle>{"Edição de Task"}</DialogTitle>
       <DialogContent>
         <TextField
           fullWidth

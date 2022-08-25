@@ -21,10 +21,6 @@ export default function Home() {
   };
 
   const editTodo = (id, editedText) => {
-    console.log(id);
-    console.log(editedText);
-    console.log(todos);
-
     var todosArray = [...todos];
 
     for (var i in todosArray) {
@@ -32,9 +28,6 @@ export default function Home() {
         todosArray[i].nameTask = editedText;
       }
     }
-
-    // todosArray.splice(todosArray.id, 1, { text: editedText, id: id });
-    // setTodos(todosArray);
   };
 
   return (
