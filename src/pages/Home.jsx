@@ -20,13 +20,30 @@ export default function Home() {
     setTodos(filtered); //Aqui o estado vai ser atuzalizado
   };
 
+  const editTodo = (id, editedText) => {
+    console.log(id);
+    console.log(editedText);
+    console.log(todos);
+
+    var todosArray = [...todos];
+
+    for (var i in todosArray) {
+      if (todosArray[i].id === id) {
+        todosArray[i].nameTask = editedText;
+      }
+    }
+
+    // todosArray.splice(todosArray.id, 1, { text: editedText, id: id });
+    // setTodos(todosArray);
+  };
+
   return (
     <Container maxWidth="xs" style={{ marginTop: "1em" }}>
       <Form addTodo={addTodo} />
       <List sx={{ marginTop: "1em" }}>
         {todos.map((todo, key) => (
           <div key={todo.id} style={{ marginTop: "1em" }}>
-            <TodoItem todo={todo} deleteTodo={deleteTodo} />
+            <TodoItem todo={todo} deleteTodo={deleteTodo} editTodo={editTodo} />
           </div>
         ))}
       </List>
